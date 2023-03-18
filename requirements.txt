@@ -1,0 +1,6 @@
+flask
+livereload
+flask_cors
+gunicorn
+tensorflow
+efficientnet
