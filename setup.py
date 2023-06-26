@@ -34,6 +34,23 @@ def create_app():
       
       # return data and 200 OK HTTP status code
       return jsonify(response)
+    
+  @app.route('/predict/test', methods=['POST'])
+  # predict function above
+  def tesr():
+      #  call method
+      print('request 2 receiveds')
+
+      response = {
+          'user': {
+              'name': 'okay',
+              # 'label': labels[np.argmax(preds)]
+              'email': 'test@example.com'
+          }
+      }
+      
+      # return data and 200 OK HTTP status code
+      return jsonify(response)
 
 
   return app
