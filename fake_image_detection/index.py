@@ -1,8 +1,8 @@
 import os
-from efficientnet.tfkeras import EfficientNetB0
-from tensorflow.keras.models import load_model
-best_model = './fake_image_detection/best_model_EB0_7_classification.h5'
-model = load_model(best_model)
+from huggingface_hub import from_pretrained_keras
+
+model = from_pretrained_keras("kampkelly/fakeimagedetection")
+
 input_size=128
 
 def predict(file_path):
@@ -24,7 +24,7 @@ def predict(file_path):
     #add one more dimension before predicting because the predict method expects a batch
     images = np.vstack([test_image])
     print('>>>>6')
-    result = model.predict(images, batch_size=10)
+    result = model.predict(images, batch_size=10, verbose=2)
     print('>>>>7')
 
     prediction = ''
